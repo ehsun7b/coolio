@@ -14,3 +14,11 @@ nativeConfig ~= { c =>
     .withMode(Mode.debug) // releaseFast
     .withGC(GC.immix) // commix
 }
+
+lazy val root = project.in(file("."))
+  .enablePlugins(ScalaNativePlugin)
+  .settings(
+    name                := "coolio",
+    libraryDependencies += "org.typelevel" %%% "cats-effect" % "3.4.8",
+    Compile / mainClass := Some("ehsun7b.coolio.Main")
+  )
